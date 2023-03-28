@@ -39,7 +39,7 @@ module People
     def marriage_params
       m_params = params.slice(:husband_id, :wife_id, :date)
       m_params[:husband_id] = person.id if person.male?
-      m_params[:wife_id] if person.female?
+      m_params[:wife_id] = person.id if person.female?
       m_params
     end
   end
