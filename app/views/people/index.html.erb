@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>People</h1>
+
+<%= link_to "New person", new_person_path %>
+
+<div id="people">
+  <table>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Date Of Birth</th>
+      <th>Gender</th>
+      <th>Partner</th>
+      <th>Marriage Date</th>
+    </tr>
+    <% @people.each do |person| %>
+      <%= render person %>
+    <% end %>
+  </table>
+</div>
+
