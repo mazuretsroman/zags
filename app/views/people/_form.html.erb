@@ -22,7 +22,7 @@
   </div>
 
   <div>
-    <%= form.label :dob, class: 'form-label' %>
+    <%= form.label :date_of_birth, class: 'form-label', for: :dob %>
     <%= form.date_field :dob, class: 'form-control' %>
   </div>
 
@@ -31,7 +31,7 @@
     <%= form.select :gender, Person::GENDERS, {}, class: 'form-select' %>
   </div>
 
-  <div>
+  <div id='js-wife-selector'>
     <%= form.label :wife, class: 'form-label' %>
     <%= form.select :wife_id,
       select_people_for_marriage(@person).collect {|p| [ p.full_name, p.id ] },
@@ -40,7 +40,7 @@
     %>
   </div>
 
-  <div>
+  <div id='js-husband-selector'>
     <%= form.label :husband, class: 'form-label' %>
     <%= form.select :husband_id,
       select_people_for_marriage(@person).collect {|p| [ p.full_name, p.id ] },
@@ -49,8 +49,8 @@
     %>
   </div>
 
-  <div>
-    <%= form.label :date, class: 'form-label' %>
+  <div id='js-marriage-date-selector'>
+    <%= form.label :marriage_date, class: 'form-label', for: :date %>
     <%= form.date_field :date, value: person.marriage&.date, class: 'form-control' %>
   </div>
 
