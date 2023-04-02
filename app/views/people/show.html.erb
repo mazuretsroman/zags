@@ -1,10 +1,28 @@
-<p style="color: green"><%= notice %></p>
+<div class='card mt-5'>
+  <div class='card-body'>
+    <p>
+      <strong>First name:</strong>
+      <%= @person.first_name %>
+    </p>
+    <p>
+      <strong>Last name:</strong>
+      <%= @person.last_name %>
+    </p>
+    <p>
+      <strong>Date of birth:</strong>
+      <%= @person.dob %>
+    </p>
+    <% if @person.partner %>
+      <p>
+        <strong>Partner:</strong>
+        <%= link_to @person.partner.full_name, @person.partner %>
+      </p>
+    <% end %>
+  </div>
+</div>
 
-<%= render @person %>
-
-<div>
-  <%= link_to "Edit this person", edit_person_path(@person) %> |
-  <%= link_to "Back to people", people_path %>
-
-  <%= button_to "Destroy this person", @person, method: :delete %>
+<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+  <%= link_to "Edit this person", edit_person_path(@person), class: 'btn btn-outline-primary' %>
+  <%= link_to "Back to people", people_path, class: 'btn btn-outline-primary' %>
+  <%= button_to "Destroy this person", @person, method: :delete, class: 'btn btn-danger' %>
 </div>

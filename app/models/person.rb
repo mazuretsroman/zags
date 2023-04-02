@@ -27,6 +27,12 @@ class Person < ApplicationRecord
     gender == 'f'
   end
 
+  def partner
+    return husband if female?
+    
+    wife if male?
+  end
+
   def marriage
     if male?
       return Marriage.find_by(husband_id: id)

@@ -1,6 +1,6 @@
-<%= form_with(model: person) do |form| %>
+<%= form_with(model: person, id: 'js-person-form') do |form| %>
   <% if person.errors.any? %>
-    <div style="color: red">
+    <div class='alert alert-danger' role='alert'>
       <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
 
       <ul>
@@ -11,47 +11,47 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
+  <div class='mb-3'>
+    <%= form.label :first_name, class: 'form-label' %>
+    <%= form.text_field :first_name, class: 'form-control' %>
   </div>
 
   <div>
-    <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
+    <%= form.label :last_name, class: 'form-label' %>
+    <%= form.text_field :last_name, class: 'form-control' %>
   </div>
 
   <div>
-    <%= form.label :dob, style: "display: block" %>
-    <%= form.date_field :dob %>
+    <%= form.label :dob, class: 'form-label' %>
+    <%= form.date_field :dob, class: 'form-control' %>
   </div>
 
   <div>
-    <%= form.label :gender, style: "display: block" %>
-    <%= form.select :gender, Person::GENDERS %>
+    <%= form.label :gender, class: 'form-label' %>
+    <%= form.select :gender, Person::GENDERS, {}, class: 'form-select' %>
   </div>
 
   <div>
-    <%= form.label :wife, style: "display: block" %>
+    <%= form.label :wife, class: 'form-label' %>
     <%= form.select :wife_id,
       select_people_for_marriage(@person).collect {|p| [ p.full_name, p.id ] },
-      include_blank: true,
-      selected: person.wife&.id
+      {selected: person.wife&.id, include_blank: true},
+      {class: 'form-select'}
     %>
   </div>
 
   <div>
-    <%= form.label :husband, style: "display: block" %>
+    <%= form.label :husband, class: 'form-label' %>
     <%= form.select :husband_id,
       select_people_for_marriage(@person).collect {|p| [ p.full_name, p.id ] },
-      include_blank: true,
-      selected: person.husband&.id
+      {include_blank: true, selected: person.husband&.id},
+      {class: 'form-select'}
     %>
   </div>
 
   <div>
-    <%= form.label :date, style: "display: block" %>
-    <%= form.date_field :date, value: person.marriage&.date %>
+    <%= form.label :date, class: 'form-label' %>
+    <%= form.date_field :date, value: person.marriage&.date, class: 'form-control' %>
   </div>
 
   <div>
