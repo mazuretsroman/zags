@@ -12,6 +12,6 @@
         <%= link_to(person.husband.full_name, person.husband) %>
       <% end %>
     </td>
-    <td><%= person.marriage&.date&.strftime("%F") %></td>
+    <td><%= person.marriage&.date %></td>
   </tr>
 </div>

@@ -42,4 +42,8 @@ class Person < ApplicationRecord
       return Marriage.find_by(wife_id: id)
     end
   end
+
+  def dob
+    [day, month, year].join('-')
+  end
 end

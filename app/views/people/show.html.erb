@@ -17,6 +17,10 @@
         <strong>Partner:</strong>
         <%= link_to @person.partner.full_name, @person.partner %>
       </p>
+      <p>
+        <strong>Marriage date:</strong>
+        <%= @person.marriage.date %>
+      </p>
     <% end %>
   </div>
 </div>

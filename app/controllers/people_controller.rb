@@ -68,14 +68,15 @@ class PeopleController < ApplicationController
     def person_params
       params
         .require(:person)
-        .permit(:first_name, :last_name, :dob, :gender, :wife_id, :husband_id, :date)
+        .permit(:first_name, :last_name, :day, :month, :year, :gender,
+                :wife_id, :husband_id, :m_day, :m_month, :m_year)
     end
 
     def marriage_params
-      person_params.slice(:wife_id, :husband_id, :date)
+      person_params.slice(:wife_id, :husband_id, :m_day, :m_month, :m_year)
     end
 
     def current_person_params
-      person_params.slice(:first_name, :last_name, :dob, :gender)
+      person_params.slice(:first_name, :last_name, :day, :month, :year, :gender)
     end
 end

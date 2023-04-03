@@ -33,11 +33,11 @@ module People
     end
 
     def person_params
-      params.slice(:first_name, :last_name, :dob, :gender)
+      params.slice(:first_name, :last_name, :day, :month, :year, :gender)
     end
 
     def marriage_params
-      m_params = params.slice(:husband_id, :wife_id, :date)
+      m_params = params.slice(:husband_id, :wife_id, :m_day, :m_month, :m_year)
       m_params[:husband_id] = person.id if person.male?
       m_params[:wife_id] = person.id if person.female?
       m_params

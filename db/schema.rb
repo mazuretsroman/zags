@@ -14,7 +14,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_085526) do
   create_table "marriages", force: :cascade do |t|
     t.integer "wife_id"
     t.integer "husband_id"
-    t.date "date"
+    t.integer "m_year", default: 0
+    t.integer "m_day", default: 0
+    t.integer "m_month", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["husband_id"], name: "index_marriages_on_husband_id"
@@ -24,8 +26,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_085526) do
   create_table "people", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.date "dob"
     t.string "gender", null: false
+    t.integer "year", default: 0
+    t.integer "day", default: 0
+    t.integer "month", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

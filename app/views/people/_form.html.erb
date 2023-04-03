@@ -21,9 +21,20 @@
     <%= form.text_field :last_name, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :date_of_birth, class: 'form-label', for: :dob %>
-    <%= form.date_field :dob, class: 'form-control' %>
+  <div class='row'>
+    <p>Date of birth:</p>
+    <div class='col-4'>
+      <%= form.label :day, class: 'form-label' %>
+      <%= form.number_field :day, class: 'form-control' %>
+    </div>
+    <div class='col-4'>
+      <%= form.label :month, class: 'form-label' %>
+      <%= form.number_field :month, class: 'form-control' %>
+    </div>
+    <div class='col-4'>
+      <%= form.label :year, class: 'form-label' %>
+      <%= form.number_field :year, class: 'form-control' %>
+    </div>
   </div>
 
   <div>
@@ -50,8 +61,20 @@
   </div>
 
   <div id='js-marriage-date-selector'>
-    <%= form.label :marriage_date, class: 'form-label', for: :date %>
-    <%= form.date_field :date, value: person.marriage&.date, class: 'form-control' %>
+    <div class='row'>
+      <div class='col-4'>
+        <%= form.label :marriage_day, class: 'form-label', for: :m_day %>
+        <%= form.number_field :m_day, value: person.marriage&.m_day, class: 'form-control' %>
+      </div>
+      <div class='col-4'>
+        <%= form.label :marriage_month, class: 'form-label', for: :m_month %>
+        <%= form.number_field :m_month, value: person.marriage&.m_month, class: 'form-control' %>
+      </div>
+      <div class='col-4'>
+        <%= form.label :marriage_year, class: 'form-label', for: :m_year %>
+        <%= form.number_field :m_year, value: person.marriage&.m_year, class: 'form-control' %>
+      </div>
+    </div>
   </div>
 
   <div>
