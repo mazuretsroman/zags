@@ -3,7 +3,12 @@ class PeopleController < ApplicationController
 
   # GET /people or /people.json
   def index
-    @people = Person.all.page(params[:page])
+    @people =
+      if params[:query]
+        Person.where('first_name ilike ?% or last_name ilike ?%', params[:query], params[:query])
+      else
+        Person.all.page(params[:page])
+      end
   end
 
   # GET /people/1 or /people/1.json

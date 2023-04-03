@@ -2,7 +2,14 @@
 
 <h1>People</h1>
 
-<%= link_to "New person", new_person_path %>
+<%= link_to "New person", new_person_path, class: 'btn btn-info' %>
+
+<%= form_with(url: '/', method: :get) do |f| %>
+  <%= label_tag :query, 'Search by name:' %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag :search, class: 'btn btn-primary' %>
+<% end %>
+
 
 <div id="people">
   <table class='table'>

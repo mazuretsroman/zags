@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_03_28_085526) do
-  create_table "marriages", force: :cascade do |t|
+  create_table "marriages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "wife_id"
     t.integer "husband_id"
     t.integer "m_year", default: 0
@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_085526) do
     t.index ["wife_id"], name: "index_marriages_on_wife_id"
   end
 
-  create_table "people", force: :cascade do |t|
+  create_table "people", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "gender", null: false
