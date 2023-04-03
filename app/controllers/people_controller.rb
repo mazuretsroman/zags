@@ -5,7 +5,7 @@ class PeopleController < ApplicationController
   def index
     @people =
       if params[:query]
-        Person.where('first_name ilike ?% or last_name ilike ?%', params[:query], params[:query])
+        Person.search(params[:query]).page(params[:page])
       else
         Person.all.page(params[:page])
       end

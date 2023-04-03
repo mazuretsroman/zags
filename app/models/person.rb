@@ -7,6 +7,14 @@ class Person < ApplicationRecord
 
   enum gender: {m: 'Male', f: 'Female'}
 
+  scope :search, lambda { |query|
+    where(
+      'LOWER(first_name) LIKE LOWER(?) OR LOWER(last_name) LIKE LOWER(?)',
+      "%#{query}%",
+      "%#{query}%"
+    )
+  }
+
   def full_name
     [first_name, last_name].join(' ')
   end
